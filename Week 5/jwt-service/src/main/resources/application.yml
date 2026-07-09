@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: jwt-service
+
+  security:
+    jwt:
+      secret: "CognizantWeek5JwtSecretKey2026MustBeAtLeast32BytesLong"
