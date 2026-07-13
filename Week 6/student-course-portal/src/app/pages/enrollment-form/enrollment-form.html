@@ -1,0 +1,114 @@
+<section class="enrollment-form">
+  <h1>Course Enrollment Form</h1>
+
+  <form #enrollmentForm="ngForm"
+        (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="studentName">Student Name:</label>
+
+      <input
+        id="studentName"
+        type="text"
+        name="studentName"
+        [(ngModel)]="studentName"
+        required
+        minlength="3"
+        #nameField="ngModel"
+      />
+
+      @if (nameField.invalid && nameField.touched) {
+        <p>
+          Student name is required and must contain at least 3 characters.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <div>
+      <label for="email">Email:</label>
+
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        email
+        #emailField="ngModel"
+      />
+
+      @if (emailField.invalid && emailField.touched) {
+        <p>
+          Enter a valid email address.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <div>
+      <label for="course">Select Course:</label>
+
+      <select
+        id="course"
+        name="course"
+        [(ngModel)]="course"
+        required
+        #courseField="ngModel">
+
+        <option value="">
+          Select a course
+        </option>
+
+        <option value="Angular Development">
+          Angular Development
+        </option>
+
+        <option value="Spring Boot Microservices">
+          Spring Boot Microservices
+        </option>
+
+        <option value="Data Structures and Algorithms">
+          Data Structures and Algorithms
+        </option>
+      </select>
+
+      @if (courseField.invalid && courseField.touched) {
+        <p>
+          Please select a course.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <button
+      type="submit"
+      [disabled]="enrollmentForm.invalid">
+      Submit Enrollment
+    </button>
+  </form>
+
+  @if (submitted) {
+    <div>
+      <h2>Enrollment Submitted Successfully</h2>
+
+      <p>
+        <strong>Student:</strong>
+        {{ studentName }}
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        {{ email }}
+      </p>
+
+      <p>
+        <strong>Course:</strong>
+        {{ course }}
+      </p>
+    </div>
+  }
+</section>

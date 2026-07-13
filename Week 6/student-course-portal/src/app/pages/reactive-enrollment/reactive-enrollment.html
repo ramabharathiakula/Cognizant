@@ -1,0 +1,119 @@
+<section class="reactive-enrollment">
+  <h1>Reactive Course Enrollment</h1>
+
+  <form
+    [formGroup]="enrollmentForm"
+    (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="reactiveStudentName">
+        Student Name:
+      </label>
+
+      <input
+        id="reactiveStudentName"
+        type="text"
+        formControlName="studentName"
+      />
+
+      @if (
+        enrollmentForm.get('studentName')?.invalid &&
+        enrollmentForm.get('studentName')?.touched
+      ) {
+        <p>
+          Student name is required and must contain at least 3 characters.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <div>
+      <label for="reactiveEmail">
+        Email:
+      </label>
+
+      <input
+        id="reactiveEmail"
+        type="email"
+        formControlName="email"
+      />
+
+      @if (
+        enrollmentForm.get('email')?.invalid &&
+        enrollmentForm.get('email')?.touched
+      ) {
+        <p>
+          Enter a valid email address.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <div>
+      <label for="reactiveCourse">
+        Select Course:
+      </label>
+
+      <select
+        id="reactiveCourse"
+        formControlName="course">
+
+        <option value="">
+          Select a course
+        </option>
+
+        <option value="Angular Development">
+          Angular Development
+        </option>
+
+        <option value="Spring Boot Microservices">
+          Spring Boot Microservices
+        </option>
+
+        <option value="Data Structures and Algorithms">
+          Data Structures and Algorithms
+        </option>
+      </select>
+
+      @if (
+        enrollmentForm.get('course')?.invalid &&
+        enrollmentForm.get('course')?.touched
+      ) {
+        <p>
+          Please select a course.
+        </p>
+      }
+    </div>
+
+    <br>
+
+    <button
+      type="submit"
+      [disabled]="enrollmentForm.invalid">
+      Submit Reactive Enrollment
+    </button>
+  </form>
+
+  @if (submitted) {
+    <div>
+      <h2>Reactive Form Submitted Successfully</h2>
+
+      <p>
+        <strong>Student:</strong>
+        {{ enrollmentForm.value.studentName }}
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        {{ enrollmentForm.value.email }}
+      </p>
+
+      <p>
+        <strong>Course:</strong>
+        {{ enrollmentForm.value.course }}
+      </p>
+    </div>
+  }
+</section>

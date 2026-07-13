@@ -1,0 +1,21 @@
+angular.json - Configures the Angular workspace, build options, development server, assets, styles, and production settings.
+
+tsconfig.json - Defines the base TypeScript compiler configuration used across the Angular project.
+
+tsconfig.app.json - Defines TypeScript compiler settings specifically for the Angular application source files.
+
+package.json - Lists project dependencies, development dependencies, npm scripts, and project metadata.
+
+src/main.ts - Acts as the main application entry point and bootstraps the root Angular application.
+
+src/app/app.config.ts - Defines application-level providers and configuration for the standalone Angular application.
+
+src/app/app.ts - Defines the root Angular component and its component metadata.
+
+src/index.html - Provides the main HTML host page where the Angular application is loaded in the browser.
+
+Angular Production Budget Configuration:
+Initial bundle maximumWarning is 500kB and maximumError is 1MB.
+Any component style maximumWarning is 4kB and maximumError is 8kB.
+maximumWarning displays a warning when the generated bundle exceeds the configured threshold.
+maximumError causes the production build to fail when the generated bundle exceeds the configured threshold.

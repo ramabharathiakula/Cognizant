@@ -1,0 +1,22 @@
+<div
+  class="course-card"
+  [appHighlight]="'lightblue'">
+
+  <h3>{{ title | uppercase }}</h3>
+
+  <p>
+    <strong>Instructor:</strong>
+    {{ instructor }}
+  </p>
+
+  <p>
+    <strong>Credits:</strong>
+    {{ credits | creditLabel }}
+  </p>
+
+  <button
+    type="button"
+    (click)="enrollCourse()">
+    Enroll
+  </button>
+</div>

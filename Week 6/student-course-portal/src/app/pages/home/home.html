@@ -1,0 +1,44 @@
+<section class="home">
+  <h1>Welcome to Student Course Portal</h1>
+
+  <p>
+    Browse available courses, manage enrollments,
+    view your profile, and track academic progress.
+  </p>
+
+  <h2>Student Information</h2>
+
+  <p><strong>Name:</strong> {{ studentName }}</p>
+  <p><strong>Student ID:</strong> {{ studentId }}</p>
+  <p><strong>GPA:</strong> {{ gpa }}</p>
+  <p><strong>Current Date:</strong> {{ currentDate }}</p>
+
+  <input
+    type="text"
+    [value]="studentName"
+    readonly
+  />
+
+  <br><br>
+
+  <button type="button" (click)="changeStudentName()">
+    Change Student Name
+  </button>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <h3>Courses Available</h3>
+      <p>12</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Enrolled</h3>
+      <p>3</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>GPA</h3>
+      <p>{{ gpa }}</p>
+    </div>
+  </div>
+</section>

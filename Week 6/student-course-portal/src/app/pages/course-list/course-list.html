@@ -1,0 +1,23 @@
+<section class="course-list">
+  <h1>Available Courses</h1>
+
+  @if (courses$ | async; as courses) {
+    @for (course of courses; track course.id) {
+      <app-course-card
+        [title]="course.title"
+        [instructor]="course.instructor"
+        [credits]="course.credits"
+        (enroll)="handleEnrollment($event)">
+      </app-course-card>
+    } @empty {
+      <p>No courses available.</p>
+    }
+  }
+
+  @if (selectedCourse$ | async; as selectedCourse) {
+    <p>
+      <strong>Enrollment requested for:</strong>
+      {{ selectedCourse }}
+    </p>
+  }
+</section>
