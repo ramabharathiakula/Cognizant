@@ -1,1 +1,18 @@
 .DS_Store
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Angular / React
+dist/
+build/
+.angular/
+coverage/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
